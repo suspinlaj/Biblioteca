@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Biblioteca_SusanaPineros.PantallaAlta"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Image
+            Grid.ColumnSpan="2"
+            Aspect="AspectFill"
+            Opacity="0.8"
+            Source="fondo.jpg" />
+
+
+        <Image
+             x:Name="imgDatos"
+             Grid.Column="0"
+             Aspect="AspectFill"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"
+             TranslationX="160"
+             Source="imgdatos.png" />
+
+        <Border
+            Grid.Column="1"
+            Margin="0,0,100,80"
+            Padding="30"
+            Background="#66000000"
+            HorizontalOptions="End"
+            Stroke="Bisque"
+            StrokeShape="RoundRectangle 15"
+            StrokeThickness="2"
+            VerticalOptions="Center">
+
+            <VerticalStackLayout Spacing="30">
+
+                <HorizontalStackLayout Spacing="25">
+
+                    <VerticalStackLayout Spacing="20" VerticalOptions="Center" Margin="0,25,30,0">
+
+                        <HorizontalStackLayout HorizontalOptions="Start" Spacing="58">
+                            <Label
+                                FontFamily="titulo"
+                                FontSize="30"
+                                HorizontalOptions="Center"
+                                Text="Titulo: "
+                                TextColor="Bisque" />
+
+                            <Entry
+                                x:Name="entryTitulo"
+                                FontFamily="OpenSansSemibold"
+                                FontSize="20"
+                                Placeholder="Nombre titulo"
+                                TextColor="White"
+                                WidthRequest="250" />
+
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout HorizontalOptions="Start" Spacing="58">
+                            <Label
+                                FontFamily="titulo"
+                                FontSize="30"
+                                HorizontalOptions="Center"
+                                Text="Autor: "
+                                TextColor="Bisque" />
+
+                            <Entry
+                                x:Name="entryAutor"
+                                FontFamily="OpenSansSemibold"
+                                FontSize="20"
+                                Placeholder="Nombre autor"
+                                TextColor="White"
+                                WidthRequest="250" />
+
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout HorizontalOptions="Start" Spacing="20">
+                            <Label
+                                FontFamily="titulo"
+                                FontSize="30"
+                                HorizontalOptions="Center"
+                                Text="Editorial: "
+                                TextColor="Bisque" />
+
+                            <Entry
+                                x:Name="entryEditorial"
+                                FontFamily="OpenSansSemibold"
+                                FontSize="20"
+                                Placeholder="Nombre editorial"
+                                TextColor="White"
+                                WidthRequest="250" />
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Margin="0,0,50,0">
+                        <Label
+                            FontFamily="titulo"
+                            FontSize="30"
+                            HorizontalOptions="Center"
+                            Text="Portada "
+                            TextColor="Bisque" />
+
+                        <Image
+                            x:Name="imgPortada"
+                            Aspect="AspectFit"
+                            HeightRequest="200"
+                            Source="noimagen.jpg"
+                            WidthRequest="120" />
+
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+
+
+                <VerticalStackLayout HorizontalOptions="Center">
+                    
+                    <HorizontalStackLayout Spacing="50">
+                        <Button
+                        x:Name="btnGuardar"
+                        Clicked="OnClickGuardar"
+                        Text="Guardar"
+                        FontFamily="OpenSansSemibold"
+                        TextColor="#3d3d3d"
+                        CornerRadius="10"
+                        BackgroundColor="Bisque"/>
+
+                        <Button 
+                        x:Name="btnSeleccionarImagen"
+                        Clicked="OnClickSeleccionarImagen"
+                        Text="Seleccionar Imagen"
+                        TextColor="#3d3d3d"
+                        CornerRadius="10"
+                        FontFamily="OpenSansSemibold"
+                        BackgroundColor="Bisque"/>      
+
+                        <Button 
+                        x:Name="btnLimpiar"
+                        Clicked="OnClickLimpiar"
+                        Text="Limpiar"
+                        TextColor="#3d3d3d"
+                        CornerRadius="10"
+                        FontFamily="OpenSansSemibold"
+                        BackgroundColor="Bisque"/>
+
+                    </HorizontalStackLayout>
+                    
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+
+        </Border>
+    </Grid>
+
+
+</ContentPage>

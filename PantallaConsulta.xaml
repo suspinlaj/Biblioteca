@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Biblioteca_SusanaPineros.PantallaConsulta">
+
+    <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+
+            <Image
+            Grid.ColumnSpan="2"
+            Aspect="AspectFill"
+            Opacity="0.8"
+            Source="fondo.jpg" />
+
+
+            <Image
+             Grid.Column="0"
+             Aspect="AspectFill"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"
+             TranslationX="160"
+             Source="imgbuscar.png" />
+
+            <Border
+            Grid.Column="1"
+            Margin="0,0,100,0"
+            Padding="50,30,50,150"
+            Background="#66000000"
+            HorizontalOptions="End"
+            Stroke="Bisque"
+            StrokeShape="RoundRectangle 15"
+            StrokeThickness="2"
+            VerticalOptions="Center">
+
+                <VerticalStackLayout Spacing="30" Padding="10">
+
+                      <Label
+                        FontFamily="titulo"
+                        FontSize="30"
+                        HorizontalOptions="Center"
+                        Text="Tipo de consulta "
+                        TextColor="Bisque" />
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="50">
+
+                    <RadioButton 
+                        Content="Autor"
+                        IsChecked="False"
+                        GroupName="grupo1"
+                        Value="autor"
+                        />
+
+                    <RadioButton 
+                        Content="Editorial"
+                        IsChecked="False"
+                        GroupName="grupo1"
+                        Value="editorial"/>
+                    
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="70">
+                    <Label
+                        FontFamily="titulo"
+                        FontSize="30"
+                        HorizontalOptions="Center"
+                        Text="Titulo"
+                        TextColor="Bisque" />
+
+                    <Label
+                        FontFamily="titulo"
+                        FontSize="30"
+                        HorizontalOptions="Center"
+                        Text="Autor/Editorial"
+                        TextColor="Bisque" />
+
+                    <Label
+                     FontFamily="titulo"
+                     FontSize="30"
+                     HorizontalOptions="Center"
+                     Text="Portada"
+                     TextColor="Bisque" />  
+
+
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="70">
+
+                    <ListView x:Name="TitulosView"
+                      ItemsSource="{Binding Titulos}"
+                      SelectedItem="{Binding TituloSeleccionado, Mode=TwoWay}">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding Nombre}" Detail="{Binding Color}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+
+                    <ListView x:Name="AutoresEditoralView"
+                       ItemsSource="{Binding AutoresEditoral}"
+                       SelectedItem="{Binding AutoresEditoralSeleccionado, Mode=TwoWay}">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding Nombre}" Detail="{Binding Color}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+
+
+                    <Image
+                        Aspect="AspectFit"
+                        Source="noimagen.jpg"
+                        WidthRequest="120" />
+
+                </HorizontalStackLayout>
+
+                
+            </VerticalStackLayout>
+
+            </Border>
+        </Grid>
+    </ContentPage>

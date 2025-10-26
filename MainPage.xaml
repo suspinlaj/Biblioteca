@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Biblioteca_SusanaPineros.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+       
+        <Image
+        Grid.ColumnSpan="2"
+        Aspect="AspectFill"
+        Opacity="0.8"
+        Source="fondo.jpg" />
+
+        
+        <Image
+            Grid.Column="0"
+            Aspect="AspectFill"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="160"
+            Source="imgportada.png" />
+
+        
+        <VerticalStackLayout
+            Grid.Column="1"
+            Margin="0,0,150,0"
+            HorizontalOptions="End"
+            Spacing="20"
+            VerticalOptions="Center">
+
+            <Label
+            FontFamily="titulo"
+            FontSize="70"
+            HorizontalOptions="Center"
+            Text="Biblioteca"
+            TextColor="White" />
+
+            <Label
+            FontFamily="titulo"
+            FontSize="60"
+            HorizontalOptions="Center"
+            Text="IES Rey Fernando IV"
+            TextColor="White" />
+
+        </VerticalStackLayout>
+    </Grid>
+
+
+
+</ContentPage>
