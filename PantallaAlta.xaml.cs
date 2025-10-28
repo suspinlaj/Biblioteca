@@ -4,12 +4,27 @@ namespace Biblioteca_SusanaPineros;
 
 public partial class PantallaAlta : ContentPage
 {
-    static List<Libro> biblioteca = new List<Libro>();
+    public static List<Libro> biblioteca = new List<Libro>();
 
     public PantallaAlta()
 	{
 		InitializeComponent();
 
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        ResetearPagina();
+    }
+
+    private void ResetearPagina()
+    { 
+        entryTitulo.Text = "";
+        entryAutor.Text = "";
+        entryEditorial.Text = "";
+        imgPortada.Source = "noimagen.jpg";
+        imgDatos.Source = "imgdatos.png";
     }
 
     private async void OnClickSeleccionarImagen(object sender, EventArgs e)
@@ -42,7 +57,7 @@ public partial class PantallaAlta : ContentPage
         imgDatos.Source = "imgdatos.png";
     }
    
-
+    
     private void OnClickGuardar(object sender, EventArgs e)
 	{
         // Informar de que falta algún dato cambiando la img de la bibliotecaria
@@ -58,6 +73,7 @@ public partial class PantallaAlta : ContentPage
             }
             else
             {
+                // Crear el libro si no existe
                 var libro = new Libro
                 {
                     Titulo = entryTitulo.Text,
@@ -67,23 +83,24 @@ public partial class PantallaAlta : ContentPage
 
                 };
                 imgDatos.Source = "imgdatosbien.png";
+                DatosLibros.biblioteca.Add(libro);
+
             }
-                
+
         }
     }
 
+    // Comprobar que el libro ingresado ya existe en la lista
     private bool LibroExistente()
     {
-        bool existe = false;
-
         foreach(Libro libros in biblioteca)
         {
-            if (libros.Titulo.Equals(entryTitulo) && libros.Editorial.Equals(entryEditorial)
-                && libros.Autor.Equals(entryAutor))
+            if (libros.Titulo.Equals(entryTitulo.Text) && libros.Editorial.Equals(entryEditorial.Text)
+                && libros.Autor.Equals(entryAutor.Text))
             {
-                existe = true;
+                return true;
             }
         }
-        return existe;
+        return false;
     }
 }

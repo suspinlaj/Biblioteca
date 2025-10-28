@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Biblioteca_SusanaPineros.PantallaConsulta">
+<ContentPage
+    x:Class="Biblioteca_SusanaPineros.PantallaConsulta"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="2*" />
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
 
 
-            <Image
+        <Image
             Grid.ColumnSpan="2"
             Aspect="AspectFill"
             Opacity="0.8"
             Source="fondo.jpg" />
 
 
-            <Image
-             Grid.Column="0"
-             Aspect="AspectFill"
-             HorizontalOptions="Center"
-             VerticalOptions="Center"
-             TranslationX="160"
-             Source="imgbuscar.png" />
+        <Image
+            Grid.Column="0"
+            Aspect="AspectFill"
+            HorizontalOptions="Center"
+            Source="imgbuscar.png"
+            TranslationX="160"
+            VerticalOptions="Center" />
 
-            <Border
+        <Border
             Grid.Column="1"
             Margin="0,0,100,0"
-            Padding="50,30,50,150"
+            Padding="50,30,50,60"
             Background="#66000000"
             HorizontalOptions="End"
             Stroke="Bisque"
@@ -36,94 +37,92 @@
             StrokeThickness="2"
             VerticalOptions="Center">
 
-                <VerticalStackLayout Spacing="30" Padding="10">
+            <VerticalStackLayout Padding="10" Spacing="30">
 
-                      <Label
-                        FontFamily="titulo"
-                        FontSize="30"
-                        HorizontalOptions="Center"
-                        Text="Tipo de consulta "
-                        TextColor="Bisque" />
+                <!--  Título  -->
+                <Label
+                    x:Name="nombreCambiar"
+                    FontFamily="titulo"
+                    FontSize="30"
+                    HorizontalOptions="Center"
+                    Text="Tipo de consulta"
+                    TextColor="Bisque" />
 
-                <HorizontalStackLayout HorizontalOptions="Center" Spacing="50">
-
-                    <RadioButton 
+                <!--  RadioButtons  -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
+                    <RadioButton
+                        x:Name="rbAutor"
+                        CheckedChanged="rbCheckedChange"
                         Content="Autor"
-                        IsChecked="False"
+                        FontSize="20"
                         GroupName="grupo1"
-                        Value="autor"
-                        />
+                        TextColor="White" />
 
-                    <RadioButton 
+                    <RadioButton
+                        x:Name="rbEditorial"
+                        CheckedChanged="rbCheckedChange"
                         Content="Editorial"
-                        IsChecked="False"
+                        FontSize="20"
                         GroupName="grupo1"
-                        Value="editorial"/>
-                    
+                        TextColor="White" />
                 </HorizontalStackLayout>
 
-                <HorizontalStackLayout HorizontalOptions="Center" Spacing="70">
-                    <Label
-                        FontFamily="titulo"
-                        FontSize="30"
-                        HorizontalOptions="Center"
-                        Text="Titulo"
-                        TextColor="Bisque" />
+
+                <Grid
+                    ColumnDefinitions="Auto,Auto,Auto"
+                    ColumnSpacing="80"
+                    RowDefinitions="Auto,Auto"
+                    RowSpacing="30">
 
                     <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
                         FontFamily="titulo"
-                        FontSize="30"
-                        HorizontalOptions="Center"
+                        FontSize="24"
                         Text="Autor/Editorial"
                         TextColor="Bisque" />
 
                     <Label
-                     FontFamily="titulo"
-                     FontSize="30"
-                     HorizontalOptions="Center"
-                     Text="Portada"
-                     TextColor="Bisque" />  
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        FontFamily="titulo"
+                        FontSize="24"
+                        Text="Título"
+                        TextColor="Bisque" />
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        FontFamily="titulo"
+                        FontSize="24"
+                        Text="Portada"
+                        TextColor="Bisque" />
 
 
-                </HorizontalStackLayout>
+                    <ListView
+                        x:Name="TitulosView"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        ItemTapped="lvTitulo_ItemTapped" />
 
-                <HorizontalStackLayout HorizontalOptions="Center" Spacing="70">
-
-                    <ListView x:Name="TitulosView"
-                      ItemsSource="{Binding Titulos}"
-                      SelectedItem="{Binding TituloSeleccionado, Mode=TwoWay}">
-
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextCell Text="{Binding Nombre}" Detail="{Binding Color}" />
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-
-                    </ListView>
-
-                    <ListView x:Name="AutoresEditoralView"
-                       ItemsSource="{Binding AutoresEditoral}"
-                       SelectedItem="{Binding AutoresEditoralSeleccionado, Mode=TwoWay}">
-
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextCell Text="{Binding Nombre}" Detail="{Binding Color}" />
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-
-                    </ListView>
+                    <ListView
+                        x:Name="AutoresEditorialesView"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        ItemSelected="AutoresEditorialView_ItemSelected" />
 
 
                     <Image
+                        x:Name="imgPortada"
+                        Grid.Row="1"
+                        Grid.Column="2"
                         Aspect="AspectFit"
                         Source="noimagen.jpg"
                         WidthRequest="120" />
+                </Grid>
 
-                </HorizontalStackLayout>
-
-                
             </VerticalStackLayout>
 
-            </Border>
-        </Grid>
-    </ContentPage>
+        </Border>
+    </Grid>
+</ContentPage>
