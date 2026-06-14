@@ -25,11 +25,9 @@ Finalizado. Proyecto educativo enfocado en el Desarrollo de Interfaces, con las 
 
 <br><br><br>
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b5711e23-4a6a-44c5-84d2-003044210bbe" width="275" alt="Pantalla Principal" />
-  &nbsp;
-  <img src="https://github.com/user-attachments/assets/43c5af27-057d-48b3-922f-c5dce2796341" width="275" alt="Pantalla de Alta de Libros" />
-  &nbsp;
-  <img src="https://github.com/user-attachments/assets/56809b92-3d5c-4c8c-aa4e-0e8141bbb9ef" width="275" alt="Pantalla de Consulta" />
+  <img src="https://github.com/user-attachments/assets/b5711e23-4a6a-44c5-84d2-003044210bbe" width="700" alt="Pantalla Principal" />
+  <br><br>
+  <img src="https://github.com/user-attachments/assets/43c5af27-057d-48b3-922f-c5dce2796341" width="700" alt="Pantalla de Alta de Libros" />
+  <br><br>
+  <img src="https://github.com/user-attachments/assets/56809b92-3d5c-4c8c-aa4e-0e8141bbb9ef" width="700" alt="Pantalla de Consulta" />
 </p>
-
-```
